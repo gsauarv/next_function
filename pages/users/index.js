@@ -30,7 +30,7 @@ export default function Home({ result }) {
 }
 
 export async function getStaticProps(context) {
-  const result = await (await fetch("http://localhost:3000/api/users/")).json();
+  const result = await (await fetch("./netlify/functions/users/")).json();
   return {
     props: {
       result,

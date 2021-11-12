@@ -21,7 +21,7 @@ const User = ({ result }) => {
 export default User;
 
 export async function getStaticPaths() {
-  const users = await (await fetch("http://localhost:3000/api/users/")).json();
+  const users = await (await fetch("./netlify/functions/users")).json();
 
   const paths = users.response.map((user) => ({
     params: { userId: user.id.toString() },
@@ -35,7 +35,7 @@ export async function getStaticPaths() {
 export async function getStaticProps({ params }) {
   const userId = params.userId;
   const { response } = await (
-    await fetch(`http://localhost:3000/api/users/${userId}`)
+    await fetch(`./netlify/functions/users/${userId}`)
   ).json();
   return {
     props: {
