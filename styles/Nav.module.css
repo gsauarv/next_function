@@ -1,0 +1,35 @@
+.navContainer {
+    width: 100%;
+    background-color: black;
+    color: white;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+
+}
+
+.navLogo
+{
+    width:200px;
+    font-size: 20px;
+    padding-left: 20px;
+}
+
+.navLinks{
+    width: 100%;
+    display:flex;
+    justify-content:flex-end;
+    align-items: center;    
+    gap: 20px;
+    font-weight: bold;
+    padding-right: 20px;
+    
+}
+
+.navLinks > a:hover
+{
+    color: whitesmoke
+}
+
+
+ 
