@@ -12,7 +12,7 @@ export default function Home({ result }) {
       </Head>
 
       <main>
-        {/* {result.response.map((data) => (
+        {result.response.map((data) => (
           <Link key={data.id} href={`/users/${data.id}`}>
             <a>
               <ul>
@@ -23,18 +23,19 @@ export default function Home({ result }) {
               </ul>
             </a>
           </Link>
-        ))} */}
+        ))}
       </main>
     </div>
   );
 }
 
 export async function getStaticProps(context) {
-  // const result = await (await fetch("http://localhost:8000/api/users/")).json();
+  const result = await (
+    await fetch("https://next-function-mauve.vercel.app/api/users/")
+  ).json();
   return {
     props: {
-      // result,
-      hello: "hello",
+      result,
     },
   };
 }
