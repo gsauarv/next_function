@@ -1,9 +1,7 @@
-import UserId from "../api/users/[userId]";
-
-const User = ({ result }) => {
+const User = (/*{ result }*/) => {
   return (
     <div>
-      <p>{result.id}</p>
+      {/* <p>{result.id}</p>
       <h1>{result.name}</h1>
       <p>{result.username}</p>
       <p>From {result.address.city}</p>
@@ -13,7 +11,7 @@ const User = ({ result }) => {
         {result.company.name}
         <br />
         {result.company.catchPhrase}
-      </pre>
+      </pre> */}
     </div>
   );
 };
@@ -21,25 +19,26 @@ const User = ({ result }) => {
 export default User;
 
 export async function getStaticPaths() {
-  const users = await (await fetch("./netlify/functions/users")).json();
+  // const users = await (await fetch("http://localhost:3000/api/users/")).json();
 
-  const paths = users.response.map((user) => ({
-    params: { userId: user.id.toString() },
-  }));
+  // const paths = users.response.map((user) => ({
+  //   params: { userId: user.id.toString() },
+  // }));
   return {
-    paths,
+    paths: [{ userId: "1" }],
     fallback: false,
   };
 }
 
 export async function getStaticProps({ params }) {
-  const userId = params.userId;
-  const { response } = await (
-    await fetch(`./netlify/functions/users/${userId}`)
-  ).json();
+  // const userId = params.userId;
+  // const { response } = await (
+  //   await fetch(`http://localhost:3000/api/users/${userId}`)
+  // ).json();
   return {
     props: {
-      result: response,
+      // result: response,
+      hello: "hello",
     },
   };
 }
